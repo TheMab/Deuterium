@@ -1,0 +1,11 @@
+{% extends "template.html" %}
+{% block content %}
+
+First Session: {{session['firstPath']}}
+<br>
+Second Session: {{session['secondPath']}}
+<br>
+<h5>Prepping video...</h5>
+
+<img src="{{ url_for('video_feed') }}">
+{% endblock %}
