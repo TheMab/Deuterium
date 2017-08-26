@@ -1,5 +1,9 @@
 {% extends "template.html" %}
 
 {% block content %}
-<img src="{{ url_for('video_feed') }}">
+<form method="POST" action="/result">
+    {{ form.firstPath }}
+    {{ form.secondPath }}
+    <input type="submit" value="Go">
+</form>
 {% endblock %}
