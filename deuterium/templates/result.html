@@ -6,6 +6,18 @@ First Session: {{session['firstPath']}}
 Second Session: {{session['secondPath']}}
 <br>
 <h5>Prepping video...</h5>
+  <div>
+      <div align="center">
+          <img src="{{ url_for('video_feed_a') }}">
+          <img src="{{ url_for('video_feed') }}">
+      </div>
+      <div align="center">
+          <img src="{{ url_for('video_feed_a') }}">
+      </div>
 
-<img src="{{ url_for('video_feed') }}">
+  </div>
+<br>
+Radius Frame 1: {{session['radius_a']}} <br>
+Radius Frame 2: {{session['radius_b']}} <br>
+
 {% endblock %}

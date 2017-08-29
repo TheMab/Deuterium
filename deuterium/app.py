@@ -27,7 +27,6 @@ def gen(camera):
 @app.route('/video_feed')
 def video_feed():
 
-    print session['pathFirst'];
     """Video streaming route. Put this in the src attribute of an img tag."""
     return Response(gen(camera.Camera()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')

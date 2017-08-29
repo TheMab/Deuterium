@@ -64,3 +64,4 @@ target/
 #project files:
 .DS_Store
 resources/
+checkboard/

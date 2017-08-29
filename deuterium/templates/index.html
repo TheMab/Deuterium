@@ -1,9 +1,14 @@
 {% extends "template.html" %}
 
 {% block content %}
-<form method="POST" action="/result">
-    {{ form.firstPath }}
-    {{ form.secondPath }}
-    <input type="submit" value="Go">
+<form method="POST" enctype="multipart/form-data" action="/result">
+
+    <div align="center", class="w-50 p-3">
+        {{ form.firstPath(placeholder="Path to first file" ) }}
+        <br>
+        {{ form.secondPath(placeholder="Path to second file") }}
+        <br>
+        {{ form.submit}}
+    </div>
 </form>
 {% endblock %}
