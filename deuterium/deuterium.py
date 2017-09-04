@@ -6,7 +6,7 @@ from flask import Flask, render_template, Response, request, session
 from flask_bootstrap import Bootstrap
 from forms import pathToVideo
 from camera.camera import VideoCamera
-from switcher.Switcher import Switcher
+from switcher.switch_algorithm.radius_switcher import RadiusSwitcher
 import os, time
 
 app = Flask(__name__)
@@ -19,8 +19,6 @@ def index():
     form = pathToVideo()
 
     return render_template('index.html', form=form)
-
-
 
 
 def gen(camera):
@@ -38,7 +36,7 @@ def video_feed():
 
     # Initialising switcher
     print "initialising switcher"
-    radius_switcher = Switcher()
+    radius_switcher = RadiusSwitcher()
 
     camera = VideoCamera(session['firstPath'],session['secondPath'], radius_switcher)
 

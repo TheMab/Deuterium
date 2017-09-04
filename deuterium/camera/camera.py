@@ -1,5 +1,4 @@
 import cv2
-from flask import session
 from detection.ball_detection import ball_detection
 
 
