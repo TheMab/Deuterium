@@ -1,0 +1,21 @@
+{% extends "bootstrap/base.html" %}
+
+{% block head %}
+    <title>Deuterium</title>
+    {{super()}}
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+{% endblock %}
+
+
+
+
+{% block navbar %}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-3">Deuterium</h1>
+            <p class="lead">Live video feed switcher, based on ball tracking in OpenCV! </p>
+        </div>
+    </div>
+{% endblock %}
