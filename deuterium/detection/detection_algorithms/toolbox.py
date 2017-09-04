@@ -11,13 +11,6 @@ def delete_background(frame):
     return fgmask
 
 
-def add_framenumber(frame, number):
-    newFrame = cv2.rectangle(frame, (5, 14), (200, 50), (210, 210, 210), -1)
-    newFrame = cv2.putText(frame, 'Frame number: ' + str(number), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255),
-                           1)
-    number += 1
-    return newFrame, number
-
 
 def colour_detection(frame):
     greenLower = (29, 86, 6)
@@ -44,8 +37,6 @@ def colour_detection(frame):
         M = cv2.moments(c)
         center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
 
-        # cv2.putText(frame, 'Ball Radius: ' + str(round(radius, 3)), (10, 45), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
-        #             (0, 0, 255), 1)
 
         # only proceed if the radius meets a minimum size
         if radius:

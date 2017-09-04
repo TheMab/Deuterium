@@ -4,10 +4,17 @@
 <form method="POST" enctype="multipart/form-data" action="/result">
 
     <div align="center", class="w-50 p-3">
-        {{ form.firstPath(placeholder="Path to first file" ) }}
-        <br>
-        {{ form.secondPath(placeholder="Path to second file") }}
-        <br>
+        <div>
+            <b>Select stream from file:</b>
+            <br>(make sure required file is in the 'resources' directory)
+            <br>
+            <br>{{ form.firstPathSelect.label }}
+            <br>{{ form.firstPathSelect }}
+            <br>
+            <br>{{ form.secondPathSelect.label }}
+            <br> {{ form.secondPathSelect }}
+            <br><br>
+        </div>
         {{ form.submit}}
     </div>
 </form>
