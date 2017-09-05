@@ -7,6 +7,8 @@ from flask_bootstrap import Bootstrap
 from forms import pathToVideo
 from camera.camera import VideoCamera
 from switcher.switch_algorithm.radius_switcher import RadiusSwitcher
+from switcher.switch_algorithm.interval_switcher import IntervalSwitcher
+
 import os, time
 
 app = Flask(__name__)
@@ -28,6 +30,14 @@ def gen(camera):
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 
+def get_selected_switcher(file, threshold):
+    if file == 'radius_switcher.py':
+        return RadiusSwitcher(threshold)
+    elif file == 'interval_switcher.py':
+        return IntervalSwitcher(threshold)
+    else:
+        print "Default switcher initialised"
+        return RadiusSwitcher(3)
 
 
 
@@ -35,10 +45,9 @@ def gen(camera):
 def video_feed():
 
     # Initialising switcher
-    print "initialising switcher"
-    radius_switcher = RadiusSwitcher()
+    switcher = get_selected_switcher(session['switcherSelect'], session['switcherThreshold'] )
 
-    camera = VideoCamera(session['firstPath'],session['secondPath'], radius_switcher)
+    camera = VideoCamera(session['firstPath'],session['secondPath'], switcher)
 
     # """Video streaming route. Put this in the src attribute of an img tag."""
     return Response(gen(camera),
@@ -50,9 +59,10 @@ def video_feed():
 @app.route('/result', methods=['POST'])
 def result():
     form = pathToVideo()
-
     session['firstPath'] = form.firstPathSelect.data
     session['secondPath'] = form.secondPathSelect.data
+    session['switcherSelect'] = form.switcherSelect.data
+    session['switcherThreshold'] = request.form['threshold']
 
     return render_template('result.html')
 

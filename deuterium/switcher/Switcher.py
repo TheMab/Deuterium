@@ -2,11 +2,13 @@ import time
 
 class Switcher(object):
     active = bool
+    threshold = int
     last_frame_id = str
     last_switch_time = int(time.time())
 
-    def __init__(self):
+    def __init__(self, threshold):
         self.active = True
+        self.threshold = threshold
 
     def switch_frame(self, new_frame_id):
         self.last_switch_time = int(time.time())
@@ -23,5 +25,9 @@ class Switcher(object):
         return self.active
 
     def switch_logic(self):
+        '''To be implemented by subclass'''
+        pass
+
+    def get_last_active(self):
         '''To be implemented by subclass'''
         pass

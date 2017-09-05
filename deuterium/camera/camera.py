@@ -1,4 +1,4 @@
-import cv2
+import cv2, imutils
 from detection.ball_detection import ball_detection
 
 
@@ -28,8 +28,9 @@ class VideoCamera(object):
         try:
             image_final = ball_detection(image_one, image_two, switcher)
         except:
-            image_final = image_one
+            image_final = switcher.get_last_active(image_one, image_two)
             print "Ball Not Found"
+
 
         ret, jpeg = cv2.imencode('.jpg',image_final)
         return jpeg.tobytes()
