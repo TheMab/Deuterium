@@ -11,8 +11,10 @@ class IntervalSwitcher(Switcher):
 
 
     def switch_logic(self, frame_a, frame_b):
+        print "switch logic triggered"
         curr_time = int(time.time())
-        print "curr time: " + curr_time
+        threshold = int(self.threshold)
+        print "curr time: " + str(int(curr_time))
 
         try:
             frame_a, radius_a = frame_a
@@ -22,16 +24,12 @@ class IntervalSwitcher(Switcher):
         except:
             "something went wrong with frame tuple in interval switcher"
 
-        if (curr_time % 2 > 0):
-            print "interval a"
-            print "curr time: "+curr_time
-            print "curr time %"+self.threshold*2+": "+curr_time % (self.threshold*2)
+        print (curr_time % (threshold*2))
+
+        if curr_time % (threshold*2) > (threshold-1):
             self.last_frame_id = self.frame_a_id
             return frame_a
         else:
-            print "interval b"
-            print "curr time: "+curr_time
-            print "curr time %"+self.threshold*2+": "+curr_time % (self.threshold*2)
             self.last_frame_id = self.frame_b_id
             return frame_b
 
