@@ -5,7 +5,7 @@ from detection.ball_detection import ball_detection
 class VideoCamera(object):
 
 
-    def __init__(self, first_path, second_path, switcher):
+    def __init__(self, first_path, second_path, switcher, detection):
 
         if first_path.isdigit():
             first_path = int(first_path)
@@ -17,16 +17,17 @@ class VideoCamera(object):
         self.video_one = cv2.VideoCapture(first_path)
         self.video_two = cv2.VideoCapture(second_path)
         self.switcher = switcher
-
+        self.detection = detection
 
 
     def get_frame(self):
         _, image_one = self.video_one.read()
         __, image_two = self.video_two.read()
         switcher = self.switcher
+        detection = self.detection
 
         try:
-            image_final = ball_detection(image_one, image_two, switcher)
+            image_final = ball_detection(image_one, image_two, switcher, detection)
         except:
             image_final = switcher.get_last_active(image_one, image_two)
             print "Ball Not Found"

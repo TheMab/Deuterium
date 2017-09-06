@@ -8,6 +8,7 @@ from forms import pathToVideo
 from camera.camera import VideoCamera
 from switcher.switch_algorithm.radius_switcher import RadiusSwitcher
 from switcher.switch_algorithm.interval_switcher import IntervalSwitcher
+from detection.detection_algorithms.colour_detection import Colour_detector
 import os, time
 
 
@@ -54,8 +55,11 @@ def video_feed():
     # Initialising switcher using user selection of switcher
     switcher = get_selected_switcher(session['switcherSelect'], session['switcherThreshold'] )
 
+    detection = Colour_detector()
+
+
     # Inisitalising emulated openCV camera using video path selected by user
-    camera = VideoCamera(session['firstPath'],session['secondPath'], switcher)
+    camera = VideoCamera(session['firstPath'],session['secondPath'], switcher, detection)
 
     # """Video streaming route. Put this in the src attribute of an img tag."""
     return Response(gen(camera),
