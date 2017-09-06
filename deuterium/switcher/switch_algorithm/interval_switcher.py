@@ -35,7 +35,6 @@ class IntervalSwitcher(Switcher):
 
 
     def get_last_active(self, frame_a, frame_b):
-        print "get_last_active():  "
         if self.last_frame_id == self.frame_a_id:
             return imutils.resize(frame_a, width=900)
         else:
