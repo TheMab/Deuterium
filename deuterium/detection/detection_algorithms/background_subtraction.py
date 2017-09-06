@@ -1,9 +1,13 @@
 from detection.detection import Detection
 import cv2
 
-class Colour_detector(Detection):
+class Background_substractor(Detection):
+    fgbg = cv2.createBackgroundSubtractorMOG2()
 
-    def detection_algo(self, frame):
+    def detection_algo(self, framea):
+        # radius = 1
+        fgmask = self.fgbg.apply(framea)
+        frame = cv2.bitwise_and(framea, framea, mask=fgmask)
 
         greenLower = (29, 86, 6)
         greenUpper = (64, 255, 255)
@@ -35,4 +39,5 @@ class Colour_detector(Detection):
                 cv2.circle(frame, (int(x), int(y)), int(radius),
                            (0, 255, 255), 2)
 
-            return frame, radius
+
+        return frame, radius
