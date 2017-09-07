@@ -52,12 +52,22 @@ def get_selected_switcher(file, threshold):
 
 
 # Route for streaming MJPEG video file
+def get_selected_detector(detector):
+    if detector == 'colour_detection.py':
+        return Colour_detector()
+    elif detector == 'background_subtraction.py':
+        return Background_substractor()
+    else:
+        # Default detection is colour_detection
+        print "Default switcher initialised"
+        return Colour_detector()
+
 @app.route('/video_feed')
 def video_feed():
 
     # Initialising switcher using user selection of switcher
     switcher = get_selected_switcher(session['switcherSelect'], session['switcherThreshold'] )
-    detection = Background_substractor()
+    detection = get_selected_detector(session['detectionSelect'])
 
     # Inisitalising emulated openCV camera using video path selected by user
     camera = VideoCamera(session['firstPath'],session['secondPath'], switcher, detection)
@@ -79,6 +89,7 @@ def result():
     session['secondPath'] = form.secondPathSelect.data
     session['switcherSelect'] = form.switcherSelect.data
     session['switcherThreshold'] = request.form['threshold']
+    session['detectionSelect'] = form.detectionSelect.data
 
     return render_template('result.html')
 
