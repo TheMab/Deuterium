@@ -2,7 +2,7 @@
 class Detection(object):
 
     def __init__(self):
-        print 'detector instantiated'
+        pass
 
     # detection algorithm to be implemented by sub class
     # input parameters: self and frame to be worked with

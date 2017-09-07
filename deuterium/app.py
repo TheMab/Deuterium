@@ -28,13 +28,15 @@ def index():
 
     return render_template('index.html', form=form)
 
-# generate camera used for MJPEG streaming streaming of video to browser
+# generate camera used for streaming streaming of video to browser
 def gen(camera):
 
+    # infinite loop to keep iterating until camera has no other frames
     while True:
         frame = camera.get_frame()
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+
 
 # inputs file name of switcher and threshold setting for that switcher
 # returns the iniatlised switcher variable according to user selection
@@ -55,9 +57,7 @@ def video_feed():
 
     # Initialising switcher using user selection of switcher
     switcher = get_selected_switcher(session['switcherSelect'], session['switcherThreshold'] )
-
     detection = Background_substractor()
-
 
     # Inisitalising emulated openCV camera using video path selected by user
     camera = VideoCamera(session['firstPath'],session['secondPath'], switcher, detection)

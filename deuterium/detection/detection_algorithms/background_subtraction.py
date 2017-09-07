@@ -5,7 +5,7 @@ class Background_substractor(Detection):
     fgbg = cv2.createBackgroundSubtractorMOG2()
 
     def detection_algo(self, framea):
-        # radius = 1
+        radius = 1
         fgmask = self.fgbg.apply(framea)
         frame = cv2.bitwise_and(framea, framea, mask=fgmask)
 
