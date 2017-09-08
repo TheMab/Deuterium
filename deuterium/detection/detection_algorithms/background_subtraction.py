@@ -1,7 +1,7 @@
-from detection.detection import Detection
+from detection.Detector import Detector
 import cv2
 
-class Background_substractor(Detection):
+class Background_substractor(Detector):
     fgbg = cv2.createBackgroundSubtractorMOG2()
 
     def detection_algo(self, framea):
@@ -24,20 +24,14 @@ class Background_substractor(Detection):
 
         # only proceed if at least one contour was found
         if len(cnts) > 0:
-            # find the largest contour in the mask, then use
-            # it to compute the minimum enclosing circle and
-            # centroid
+            # find the largest contour in the mask
             c = max(cnts, key=cv2.contourArea)
             ((x, y), radius) = cv2.minEnclosingCircle(c)
-            M = cv2.moments(c)
-            center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
 
-            # only proceed if the radius meets a minimum size
+            # only proceed if the radius is present
             if radius:
-                # draw the circle and centroid on the frame,
-                # then update the list of tracked points
+                # draw the circle on the frame,
                 cv2.circle(frame, (int(x), int(y)), int(radius),
                            (0, 255, 255), 2)
 
-
-        return frame, radius
+        return fgmask, radius

@@ -1,7 +1,7 @@
-from detection.detection import Detection
+from detection.Detector import Detector
 import cv2
 
-class Colour_detector(Detection):
+class Colour_detector(Detector):
 
     def detection_algo(self, frame):
 
@@ -25,13 +25,10 @@ class Colour_detector(Detection):
             # centroid
             c = max(cnts, key=cv2.contourArea)
             ((x, y), radius) = cv2.minEnclosingCircle(c)
-            M = cv2.moments(c)
-            center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
 
-            # only proceed if the radius meets a minimum size
+            # only proceed if the radius is present
             if radius:
-                # draw the circle and centroid on the frame,
-                # then update the list of tracked points
+                # draw the circle on the frame,
                 cv2.circle(frame, (int(x), int(y)), int(radius),
                            (0, 255, 255), 2)
 

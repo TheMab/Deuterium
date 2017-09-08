@@ -1,5 +1,6 @@
-import cv2, imutils
-from detection.ball_detection import ball_detection
+import cv2
+
+from deuterium import deuterium
 
 
 class VideoCamera(object):
@@ -27,7 +28,7 @@ class VideoCamera(object):
         detection = self.detection
 
         try:
-            image_final = ball_detection(image_one, image_two, switcher, detection)
+            image_final = deuterium(image_one, image_two, switcher, detection)
         except:
             image_final = switcher.get_last_active(image_one, image_two)
             print "Ball Not Found"
