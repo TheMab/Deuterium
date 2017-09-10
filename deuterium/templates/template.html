@@ -14,8 +14,15 @@
 {% block navbar %}
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-3">Deuterium</h1>
-            <p class="lead">Live video feed switcher, based on ball tracking in OpenCV! </p>
+            {% block logo %}
+            <a href="/">
+            <img src="static/img/DeuteriumLogo.png">
+            </a>
+
+            <p class="lead"><br>Real-time ball detection for broadcasting </p>
+            {% endblock %}
+            <!--<h1 class="display-3">Deuterium</h1>-->
+
         </div>
     </div>
 {% endblock %}

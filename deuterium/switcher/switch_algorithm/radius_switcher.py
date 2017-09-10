@@ -26,6 +26,7 @@ class RadiusSwitcher(Switcher):
 
     def switch_logic(self, frame_a, frame_b):
 
+        print "testing"
         try:
             # unpack frame tuple
             frame_a, radius_a = frame_a

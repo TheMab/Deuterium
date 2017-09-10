@@ -24,7 +24,6 @@ def populate_list(my_list, dir_list):
 
 
 
-
 class pathToVideo(FlaskForm):
 
 	fileDirList = clean_dir(get_fileList('resources'))
@@ -45,4 +44,3 @@ class pathToVideo(FlaskForm):
 	detectionSelect = SelectField(u'Select Detection: ', choices=detectionOptionList)
 	switcherSelect = SelectField(u'Select Switcher: ', choices=switcherOptionList)
 	submit = SubmitField('Submit')
-
