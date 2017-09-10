@@ -36,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="colour_detection.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="colour_detection.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/detection/detection_algorithms/colour_detection.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="36" lean-forward="true" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+              <caret line="5" column="12" lean-forward="true" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -58,7 +58,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deuterium.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="deuterium.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/deuterium.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
@@ -128,7 +128,6 @@
         <option value="$PROJECT_DIR$/detection/detection.py" />
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/detection/Detector.py" />
-        <option value="$PROJECT_DIR$/detection/detection_algorithms/colour_detection.py" />
         <option value="$PROJECT_DIR$/detection/detection_algorithms/background_subtraction.py" />
         <option value="$PROJECT_DIR$/camera/camera.py" />
         <option value="$PROJECT_DIR$/switcher/Switcher.py" />
@@ -142,6 +141,8 @@
         <option value="$PROJECT_DIR$/form_controller.py" />
         <option value="$PROJECT_DIR$/controllers/form_controller.py" />
         <option value="$PROJECT_DIR$/forms.py" />
+        <option value="$PROJECT_DIR$/detection/detection_algorithms/colour_detection.py" />
+        <option value="$PROJECT_DIR$/detection/detection_algorithms/test_colour_detector.py" />
       </list>
     </option>
   </component>
@@ -199,21 +200,6 @@
             <path>
               <item name="deuterium" type="b2602c69:ProjectViewProjectNode" />
               <item name="deuterium" type="462c0819:PsiDirectoryNode" />
-              <item name="calibration" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="deuterium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deuterium" type="462c0819:PsiDirectoryNode" />
-              <item name="camera" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="deuterium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deuterium" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="deuterium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deuterium" type="462c0819:PsiDirectoryNode" />
               <item name="detection" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -221,22 +207,6 @@
               <item name="deuterium" type="462c0819:PsiDirectoryNode" />
               <item name="detection" type="462c0819:PsiDirectoryNode" />
               <item name="detection_algorithms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="deuterium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deuterium" type="462c0819:PsiDirectoryNode" />
-              <item name="switcher" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="deuterium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deuterium" type="462c0819:PsiDirectoryNode" />
-              <item name="switcher" type="462c0819:PsiDirectoryNode" />
-              <item name="switch_algorithm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="deuterium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deuterium" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -412,16 +382,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="24" column="20" lean-forward="false" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-          <folding>
-            <element signature="e#44#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/cv2/lib/python2.7/site-packages/imutils/contours.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -608,16 +568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/detection/detection_algorithms/colour_detection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="36" lean-forward="true" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/run_controller.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -625,14 +575,6 @@
           <folding>
             <element signature="e#0#68#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="12" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -667,7 +609,7 @@
         <state relative-caret-position="360">
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -693,6 +635,32 @@
         <state relative-caret-position="195">
           <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detection/detection_algorithms/test_colour_detector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="6" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detection/detection_algorithms/colour_detection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="12" lean-forward="true" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
