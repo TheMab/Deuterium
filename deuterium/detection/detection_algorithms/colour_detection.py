@@ -2,9 +2,10 @@ from detection.Detector import Detector
 import cv2
 
 class Colour_detector(Detector):
+    """class containing detection algorithm for colour based detection of a green ball"""
 
     def detection_algo(self, frame):
-
+        """ detection algorithm for this subclass, returns processed image and radius of the ball"""
         greenLower = (29, 86, 6)
         greenUpper = (64, 255, 255)
 

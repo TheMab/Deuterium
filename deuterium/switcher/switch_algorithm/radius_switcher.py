@@ -2,6 +2,7 @@ import time, imutils
 from switcher.Switcher import Switcher
 
 class RadiusSwitcher(Switcher):
+    """Ball radius based switcher class"""
 
     # class variables
     frame_a_id = 'a'
@@ -9,9 +10,11 @@ class RadiusSwitcher(Switcher):
     frame_a = object
     frame_b = object
 
-    # returns current enabled state of switcher
-    def is_active(self):
 
+    def is_active(self):
+        """
+        :return: returns current enabled state of switcher
+        """
 
         curr_time = time.time()
         time_since_last_switch = curr_time - self.last_switch_time
@@ -25,8 +28,12 @@ class RadiusSwitcher(Switcher):
 
 
     def switch_logic(self, frame_a, frame_b):
-
-        print "testing"
+        """
+        switch logic implemented in this subclass, compares radius and returns feed with the largest radius
+        :param frame_a:
+        :param frame_b:
+        :return: frame_a or frame_b
+        """
         try:
             # unpack frame tuple
             frame_a, radius_a = frame_a
@@ -36,7 +43,7 @@ class RadiusSwitcher(Switcher):
             self.frame_b = frame_b
 
         except:
-            "something went wrong with frame tuple in radius switcher"
+            print "something went wrong with frame tuple in radius switcher"
 
         # switching logic
         if radius_a>radius_b:
@@ -60,8 +67,8 @@ class RadiusSwitcher(Switcher):
             else:
                 return frame_a
 
-    # returns self.last_
     def get_last_active(self, frame_a, frame_b):
+        """returns last active frame that was used"""
         if self.last_frame_id == self.frame_a_id:
             return imutils.resize(frame_a, width=900)
         else:

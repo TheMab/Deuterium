@@ -19,9 +19,10 @@ Bootstrap(app)
 app.secret_key = os.urandom(24)
 
 
-# Route for the homepage, renders index template
+
 @app.route('/', methods=['GET','POST'])
 def index():
+    """ Route for the homepage, renders index template"""
     form = pathToVideo()
 
     return render_template('index.html', form=form)
@@ -30,6 +31,7 @@ def index():
 
 @app.route('/video_feed')
 def video_feed():
+    """Video streaming route. This is used in the src attribute of an img tag."""
 
     # Initialising switcher using user selection of switcher
     switcher = get_selected_switcher(session['switcherSelect'], session['switcherThreshold'] )
@@ -38,15 +40,15 @@ def video_feed():
     # Initialising emulated openCV camera using video path selected by user
     camera = VideoCamera(session['firstPath'],session['secondPath'], switcher, detection)
 
-    # """Video streaming route. Put this in the src attribute of an img tag."""
+
     return Response(gen(camera),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
 
-# Route to results page after submitting form on index page
 @app.route('/result', methods=['POST'])
 def result():
+    """Route to results page after submitting form on index page"""
     # declare form from form.py
     form = pathToVideo()
 

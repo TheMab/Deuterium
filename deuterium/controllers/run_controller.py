@@ -4,33 +4,47 @@ from detection.detection_algorithms.colour_detection import Colour_detector
 from detection.detection_algorithms.background_subtraction import Background_substractor
 
 
-# inputs file name of switcher and threshold setting for that switcher
-# returns the iniatlised switcher variable according to user selection
+
 def get_selected_switcher(file, threshold):
+    """inputs file name of switcher and threshold setting for that switcher
+    returns the iniatlised switcher variable according to user selection """
     if file == 'radius_switcher.py':
         return RadiusSwitcher(threshold)
     elif file == 'interval_switcher.py':
         return IntervalSwitcher(threshold)
+    #
+    #elif():
+    #Custom routes to be added here
+    #
+    #
+
     else:
         # Default switcher is radius switcher with 3 second lock out period
         print "Default switcher initialised"
         return RadiusSwitcher(3)
 
 
-# Route for streaming MJPEG video file
+
 def get_selected_detector(detector):
+    """ detemins which detector was selected by user"""
     if detector == 'colour_detection.py':
         return Colour_detector()
     elif detector == 'background_subtraction.py':
         return Background_substractor()
+    #
+    #elif():
+    #Custom routes to be added here
+    #
+    #
     else:
         # Default detection is colour_detection
         print "Default switcher initialised"
         return Colour_detector()
 
 
-# generate camera used for streaming streaming of video to browser
+
 def gen(camera):
+    """ generate camera used for streaming streaming of video to browser"""
 
     # infinite loop to keep iterating until camera has no other frames
     while True:

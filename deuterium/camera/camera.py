@@ -4,10 +4,10 @@ from deuterium import deuterium
 
 
 class VideoCamera(object):
-
+    """Video camera class, to generate streaming. Requires 4 inputs: first video, second video, switcher and detection algorithm"""
 
     def __init__(self, first_path, second_path, switcher, detection):
-
+        """init method for VideoCamera, contains logic to get camera index if feed is an int """
         if first_path.isdigit():
             first_path = int(first_path)
 
@@ -22,6 +22,7 @@ class VideoCamera(object):
 
 
     def get_frame(self):
+        """this method is extracts frames from the video, passes to deuterium processing and converts output into jpeg for streaming"""
         _, image_one = self.video_one.read()
         __, image_two = self.video_two.read()
         switcher = self.switcher

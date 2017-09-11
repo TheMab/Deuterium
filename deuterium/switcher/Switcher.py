@@ -4,6 +4,8 @@ import imutils
 
 # switcher class
 class Switcher(object):
+    """ Switcher class, switch_logic and get_last_active methods must be implemented by subclass"""
+
 
     # shows if switcher is enabled or not
     active = bool
@@ -14,38 +16,41 @@ class Switcher(object):
     # stores time last switch took place
     last_switch_time = int(time.time())
 
-    # switcher requires self and threshold parameters when being initialised
+
     def __init__(self, threshold):
+        """switcher requires self and threshold parameters when being initialised"""
         # default set as enabled to allow first allocation of last_frame_id
         self.active = True
         self.threshold = threshold
 
-    # method should be called after the frame has been switched. ie. last_frame_id != new_frame_id
-    # resets last switch time
+
     def switch_frame(self, new_frame_id):
+        """method should be called after the frame has been switched. ie. last_frame_id != new_frame_id
+        resets last switch time"""
         self.last_switch_time = int(time.time())
         self.last_frame_id = new_frame_id
 
-    # to deactivate switcher
     def deactivate(self):
+        """to deactivate switcher"""
         print "deactivated at  "+ str(int(time.time()))
         self.active = False
 
-    # to activate switcher
     def activate(self):
+        """to activate switcher"""
         self.active = True
 
-    # returns if switcher is active or not, should be overridden in subclass for a more specific function
     def is_active(self):
+        """ returns if switcher is active or not, should be overridden in subclass for a more specific function"""
         return self.active
 
-    # the actual switching logic that defines the type of switcher, MUST be implemented by subclass
     def switch_logic(self):
-        '''To be implemented by subclass'''
+        """the actual switching logic that defines the type of switcher, MUST be implemented by subclass.
+        To be implemented by subclass"""
         pass
 
-    # input parameter: instance of switcher and the two frames in the same order as passed in other methods
-    # should return frame last used as per defined id in the subclass
+
     def get_last_active(self, frame_a, frame_b):
-        '''To be implemented by subclass'''
+        """input parameter: instance of switcher and the two frames in the same order as passed in other methods
+        should return frame last used as per defined id in the subclass
+        To be implemented by subclass"""
         pass

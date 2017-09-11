@@ -5,7 +5,6 @@
     {{super()}}
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	<script src="{{ url_for('static', filename='js/app.js') }}"></script>
 {% endblock %}
 
 
@@ -16,12 +15,11 @@
         <div class="container">
             {% block logo %}
             <a href="/">
-            <img src="static/img/DeuteriumLogo.png">
+            <img src="static/img/DeuteriumLogo2.png">
             </a>
 
             <p class="lead"><br>Real-time ball detection for broadcasting </p>
             {% endblock %}
-            <!--<h1 class="display-3">Deuterium</h1>-->
 
         </div>
     </div>
