@@ -12,7 +12,7 @@ def get_fileList(dir):
 def clean_dir(my_list):
 	""" pattern matching of .pyc and __init__.py to eliminate files that are not required in the directory"""
 
-	r = re.compile(".*.pyc|.*__init__.py")
+	r = re.compile(".*.pyc|.*__init__.py|.DS_Store")
 	new_list = filter(r.match, my_list)
 	unmatched = list(set(my_list) - set(new_list))
 	return unmatched

@@ -32,6 +32,7 @@ class VideoCamera(object):
             image_final = deuterium(image_one, image_two, switcher, detection)
         except:
             image_final = switcher.get_last_active(image_one, image_two)
+            print "Bar"
             print "Ball Not Found"
 
 

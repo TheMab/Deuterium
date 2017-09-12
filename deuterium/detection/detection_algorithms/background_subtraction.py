@@ -38,4 +38,4 @@ class Background_substractor(Detector):
                 cv2.circle(frame, (int(x), int(y)), int(radius),
                            (0, 255, 255), 2)
 
-        return frame, radius
+        return fgmask, radius

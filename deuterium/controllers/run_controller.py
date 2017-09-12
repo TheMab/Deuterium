@@ -1,13 +1,14 @@
 from switcher.switch_algorithm.radius_switcher import RadiusSwitcher
-from switcher.switch_algorithm.interval_switcher import IntervalSwitcher
 from detection.detection_algorithms.colour_detection import Colour_detector
+from switcher.switch_algorithm.interval_switcher import IntervalSwitcher
 from detection.detection_algorithms.background_subtraction import Background_substractor
-
 
 
 def get_selected_switcher(file, threshold):
     """inputs file name of switcher and threshold setting for that switcher
     returns the iniatlised switcher variable according to user selection """
+
+
     if file == 'radius_switcher.py':
         return RadiusSwitcher(threshold)
     elif file == 'interval_switcher.py':
@@ -17,11 +18,9 @@ def get_selected_switcher(file, threshold):
     #Custom routes to be added here
     #
     #
-
-    else:
-        # Default switcher is radius switcher with 3 second lock out period
-        print "Default switcher initialised"
-        return RadiusSwitcher(3)
+    # Default switcher is radius switcher with 3 second lock out period
+    print "Default switcher initialised"
+    return RadiusSwitcher(3)
 
 
 

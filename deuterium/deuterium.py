@@ -12,7 +12,7 @@ def deuterium(frame_a, frame_b, switcher, detector):
         frame_final = switcher.switch_logic(frame_a_tuple, frame_b_tuple)
         switcher.last_active = frame_final
     except:
-        print "blah"
+        print "Foo"
 
 
     frame_final = imutils.resize(frame_final, width=900)
